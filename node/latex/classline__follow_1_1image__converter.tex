@@ -1,0 +1,73 @@
+\hypertarget{classline__follow_1_1image__converter}{}\doxysection{line\+\_\+follow.\+image\+\_\+converter Class Reference}
+\label{classline__follow_1_1image__converter}\index{line\_follow.image\_converter@{line\_follow.image\_converter}}
+
+
+Image converter to robot movement for line following.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classline__follow_1_1image__converter_a86c62a0459d5c3faa7ec66177f941166}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em The constructor creates a subsciber that subscribes to the camera feed The subscriber takes in a callback function as a parameter which invokes the callback function when a new image from the camera feed is passed to the subscriber. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classline__follow_1_1image__converter_ab96161439bcad32bc711028b6e06c986}{callback}} (self, data)
+\begin{DoxyCompactList}\small\item\em The callback function first converts the image to a CV image format This image is then grayscaled, gaussian blurred, and then thresholded into a binary map The center of mass of the binary map is calculated to provide the location of the path Based on the x and y coordinates of the center of mass, the robot will adjust itself accordingly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classline__follow_1_1image__converter_ae2d4a69b7bdd4b47149bcdec80c0af95}\label{classline__follow_1_1image__converter_ae2d4a69b7bdd4b47149bcdec80c0af95}} 
+{\bfseries image\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classline__follow_1_1image__converter_a36a6fbc07dc79c552bae3b65fef8286b}\label{classline__follow_1_1image__converter_a36a6fbc07dc79c552bae3b65fef8286b}} 
+{\bfseries move}
+\item 
+\mbox{\Hypertarget{classline__follow_1_1image__converter_ae110ddf0e76152af620dc67fc4e99604}\label{classline__follow_1_1image__converter_ae110ddf0e76152af620dc67fc4e99604}} 
+{\bfseries bridge}
+\item 
+\mbox{\Hypertarget{classline__follow_1_1image__converter_a27b31c14e91ad48112b348d7b7fb459c}\label{classline__follow_1_1image__converter_a27b31c14e91ad48112b348d7b7fb459c}} 
+{\bfseries image\+\_\+sub}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Image converter to robot movement for line following. 
+
+Class is used to intake camera images from the robot, convert to open cv format condition image, determine the center of mass, and publish information to control robot movement using the center of mass. ~\newline
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classline__follow_1_1image__converter_a86c62a0459d5c3faa7ec66177f941166}\label{classline__follow_1_1image__converter_a86c62a0459d5c3faa7ec66177f941166}} 
+\index{line\_follow.image\_converter@{line\_follow.image\_converter}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!line\_follow.image\_converter@{line\_follow.image\_converter}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def line\+\_\+follow.\+image\+\_\+converter.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+The constructor creates a subsciber that subscribes to the camera feed The subscriber takes in a callback function as a parameter which invokes the callback function when a new image from the camera feed is passed to the subscriber. 
+
+The camera feed to cv image and the robot movement are initialized A publisher is initialized that publishes information on the robot movement in order to move the robot. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classline__follow_1_1image__converter_ab96161439bcad32bc711028b6e06c986}\label{classline__follow_1_1image__converter_ab96161439bcad32bc711028b6e06c986}} 
+\index{line\_follow.image\_converter@{line\_follow.image\_converter}!callback@{callback}}
+\index{callback@{callback}!line\_follow.image\_converter@{line\_follow.image\_converter}}
+\doxysubsubsection{\texorpdfstring{callback()}{callback()}}
+{\footnotesize\ttfamily def line\+\_\+follow.\+image\+\_\+converter.\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+The callback function first converts the image to a CV image format This image is then grayscaled, gaussian blurred, and then thresholded into a binary map The center of mass of the binary map is calculated to provide the location of the path Based on the x and y coordinates of the center of mass, the robot will adjust itself accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em data} & The data from the camera feed \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+line\+\_\+follow.\+py\end{DoxyCompactItemize}
